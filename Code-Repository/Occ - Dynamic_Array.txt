@@ -1,0 +1,37 @@
+DEFINE DATA LOCAL
+1 GROUP-VAR (1:*)
+  2 VAR1 (A4)
+  2 VAR2 (A4)
+1 CNT (I4)
+1 IX  (I4)
+END-DEFINE
+*
+INPUT 'PLEASE ENTER THE VALUE OF CNT:' CNT
+FOR IX = 1 TO CNT
+IF CNT NE 0
+  EXPAND ARRAY GROUP-VAR TO (1:IX)
+  PRINT '=' *OCC(VAR1)
+ELSE
+  REDUCE ARRAY GROUP-VAR TO 0
+  PRINT '=' *OCC(VAR1)
+END-IF
+END-FOR
+*
+IF OCC(VAR2) EQ 0
+  WRITE '*OCC IS 0'
+ELSE
+  WRITE '*OCC IS NOT 0'
+END-IF
+*
+END
+
+***************************************************
+While use *OCC for dynamic array, if you are using group variable you can't use the group variable directly with group variable but you can use either of it's sub variables.
+
+e.g.
+
+*OCC(GROUP-VAR) : This is invalid statement
+*OCC(VAR1)      : This is a valid statement
+*OCC(VAR2)      : This is a valid statement
+
+Both *OCC(VAR1) and *OCC(VAR2) will give the same result.

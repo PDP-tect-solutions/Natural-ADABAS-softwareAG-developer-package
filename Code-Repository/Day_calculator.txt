@@ -1,0 +1,20 @@
+DEFINE DATA LOCAL
+1 #FROM (D)  INIT <D'17/05/2020'>
+1 #TO (D)    INIT <D'20/05/2020'>
+1 #DAYS (N3)
+END-DEFINE
+#DAYS := D'20/05/2020' - D'17/05/2020'
+WRITE #DAYS 'days between D"20/05/2020" and D"17/05/2020"'
+*
+#DAYS := #TO - #FROM
+WRITE #DAYS 'days between #FROM and #TO'
+*
+#DAYS := *DATX - D'17/05/2020'
+WRITE #DAYS 'days between *DATX and D"17/05/2020"'
+END
+
+DTDIFF results:
+
+   3 days between D'20/05/2020' and D'17/05/2020'
+   3 days between #FROM and #TO
+   3 days between *DATX and D'17/05/2020'
