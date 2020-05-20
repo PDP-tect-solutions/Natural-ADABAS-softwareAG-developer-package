@@ -1,0 +1,19 @@
+DEFINE DATA LOCAl
+1 EMPLOYEE-VIEW VIEW OF EMPLOYEE
+1 DEL-CNT (N5)
+END-DEFINE
+/* delete all records from EMPLOYEE
+R1. READ EMPLOYEE-VIEW
+  DELETE
+  COMPUTE DEL-CNT = DEL-CNT + 1
+END-READ
+*
+END TRANSACTION
+*
+WRITE 'OK - all records deleted in EMPLOYEE:' DEL-CNT
+*
+END
+
+
+Imp. Note: You can also use FIND and GET to delete record. In ideal scenario to delete a single record., FIND and READ 
+are not recommanded over GET, as GET will have exclusive hold while deleting a record.
